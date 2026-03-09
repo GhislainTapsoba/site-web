@@ -101,7 +101,7 @@ const Contact = () => {
             <div className="rounded-xl overflow-hidden glass h-52">
               <iframe
                 title="Deep-Technologies - Ouagadougou"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3897.123!2d-1.5196!3d12.3714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sOuagadougou%2C+Secteur+29!5e0!3m2!1sfr!2sbf!4v1700000000000"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3940.123456789!2d-1.55846!3d12.3103393!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xe2e9758b013c271%3A0x964b5b57d438f2ce!2sDeep%20Technologies%20SARL!5e0!3m2!1sen!2sbf"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

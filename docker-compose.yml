@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: deep-technologies-web
+    ports:
+      - "3010:80" # Port externe 3010 vers port interne 80
+    restart: unless-stopped
+
+networks:
+  default:
+    driver: bridge

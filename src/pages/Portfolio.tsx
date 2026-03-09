@@ -65,7 +65,7 @@ const projects = [
     category: "infogerance" as Category,
     description: "Audit de sécurité complet, mise en place de pare-feu nouvelle génération et plan de continuité d'activité.",
     tech: ["Fortinet", "Palo Alto", "SIEM"],
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=600&fit=crop"
   },
   {
     title: "Plateforme e-learning",
@@ -114,11 +114,10 @@ const Portfolio = () => {
               <button
                 key={cat.value}
                 onClick={() => setActive(cat.value)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  active === cat.value
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${active === cat.value
                     ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg shadow-primary/25"
                     : "glass text-muted-foreground hover:text-foreground hover:border-primary/40"
-                }`}
+                  }`}
               >
                 {cat.label}
               </button>

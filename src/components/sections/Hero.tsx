@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import GradientText from "@/components/ui/GradientText";
 import { useEffect, useState } from "react";
 
-const words = ["style", "vie", "sens", "force"];
+const words = ["du style", "de la vie", "du sens", "de la force"];
 
 const floatingCards = [
   { icon: Code2, label: "Web & Apps", x: "left-[5%]", y: "top-[20%]", delay: "0s" },
@@ -94,7 +94,7 @@ const Hero = () => {
 
         {/* H1 with typing effect */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] mb-6 animate-fade-in-up stagger-1 opacity-0" style={{ animationFillMode: "forwards" }}>
-          Nous donnons du{" "}
+          Nous donnons {" "}
           <span className="relative inline-block">
             <GradientText className="font-extrabold">{displayed}</GradientText>
             <span className="inline-block w-[3px] h-[0.8em] bg-accent ml-1 animate-pulse align-middle" />
