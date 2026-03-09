@@ -1,42 +1,39 @@
 import { MapPin, Mail, Phone, Linkedin, Facebook, Twitter } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import logo from "@/assets/logo.jpg";
 
 const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const scrollTo = (href: string) => {
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+    if (location.pathname !== "/") {
+      navigate("/" + href);
+      return;
+    }
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <footer className="border-t border-border bg-secondary/30">
-      {/* Gradient line */}
       <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
 
       <div className="container mx-auto px-4 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Logo & description */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-sm">
-                DT
-              </div>
+            <Link to="/" className="flex items-center gap-2">
+              <img src={logo} alt="Deep-Technologies" className="h-10 w-auto rounded" />
               <span className="text-lg font-bold text-foreground">
                 Deep<span className="text-primary">-Technologies</span>
               </span>
-            </div>
+            </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Votre partenaire IT de confiance en Afrique de l'Ouest. Nous transformons vos défis technologiques en solutions performantes.
+              Votre partenaire IT de confiance en Afrique de l'Ouest.
             </p>
             <div className="flex gap-3">
-              {[
-                { icon: Linkedin, href: "#" },
-                { icon: Facebook, href: "#" },
-                { icon: Twitter, href: "#" },
-              ].map(({ icon: Icon, href }, i) => (
-                <a
-                  key={i}
-                  href={href}
-                  className="p-2 rounded-lg border border-border hover:border-primary hover:text-primary transition-all text-muted-foreground"
-                >
+              {[Linkedin, Facebook, Twitter].map((Icon, i) => (
+                <a key={i} href="#" className="p-2 rounded-lg border border-border hover:border-primary hover:text-primary transition-all text-muted-foreground">
                   <Icon size={16} />
                 </a>
               ))}
@@ -47,14 +44,19 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold text-foreground">Liens rapides</h4>
             <ul className="space-y-2">
-              {["Accueil", "Services", "À propos", "Contact"].map((label) => (
-                <li key={label}>
-                  <button
-                    onClick={() => scrollTo(`#${label === "À propos" ? "apropos" : label.toLowerCase()}`)}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {label}
-                  </button>
+              {[
+                { label: "Accueil", href: "#accueil" },
+                { label: "Services", href: "#services" },
+                { label: "Portfolio", href: "/portfolio" },
+                { label: "À propos", href: "#apropos" },
+                { label: "Contact", href: "#contact" },
+              ].map((item) => (
+                <li key={item.label}>
+                  {item.href.startsWith("/") ? (
+                    <Link to={item.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">{item.label}</Link>
+                  ) : (
+                    <button onClick={() => scrollTo(item.href)} className="text-sm text-muted-foreground hover:text-primary transition-colors">{item.label}</button>
+                  )}
                 </li>
               ))}
             </ul>
@@ -64,9 +66,14 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold text-foreground">Services</h4>
             <ul className="space-y-2">
-              {["Outsourcing", "Infogérance", "Web & Apps Design", "Call Center"].map((s) => (
-                <li key={s}>
-                  <span className="text-sm text-muted-foreground">{s}</span>
+              {[
+                { label: "Outsourcing", slug: "outsourcing" },
+                { label: "Infogérance", slug: "infogerance" },
+                { label: "Web & Apps Design", slug: "web-apps" },
+                { label: "Call Center", slug: "call-center" },
+              ].map((s) => (
+                <li key={s.slug}>
+                  <Link to={`/services/${s.slug}`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{s.label}</Link>
                 </li>
               ))}
             </ul>
