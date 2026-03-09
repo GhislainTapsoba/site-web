@@ -1,4 +1,5 @@
 import { Users, Shield, Code2, Headphones, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import GradientText from "@/components/ui/GradientText";
 
@@ -6,24 +7,28 @@ const services = [
   {
     icon: Users,
     title: "Outsourcing",
+    slug: "outsourcing",
     description: "Accédez aux compétences dont vous avez besoin, quand vous en avez besoin. Nos experts intègrent vos équipes.",
     tag: "Ressources",
   },
   {
     icon: Shield,
     title: "Infogérance",
+    slug: "infogerance",
     description: "Sécurisez et optimisez votre parc informatique. Maintenance proactive et support technique dédié.",
     tag: "Infrastructure",
   },
   {
     icon: Code2,
     title: "Web & Apps Design",
+    slug: "web-apps",
     description: "Sites web et applications métier sur mesure. Design moderne, performances optimales, expérience utilisateur exceptionnelle.",
     tag: "Développement",
   },
   {
     icon: Headphones,
     title: "Call Center Solution",
+    slug: "call-center",
     description: "Solutions professionnelles de centre d'appel. Technologie VoIP, CRM intégré et formation des agents.",
     tag: "Communication",
   },
@@ -69,9 +74,12 @@ const Services = () => {
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">{service.description}</p>
 
               {/* Link */}
-              <button className="inline-flex items-center gap-1 text-sm text-primary hover:gap-2 transition-all">
+              <Link
+                to={`/services/${service.slug}`}
+                className="inline-flex items-center gap-1 text-sm text-primary hover:gap-2 transition-all"
+              >
                 En savoir plus <ArrowRight size={14} />
-              </button>
+              </Link>
             </div>
           ))}
         </div>
