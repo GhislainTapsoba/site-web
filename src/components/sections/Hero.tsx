@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import GradientText from "@/components/ui/GradientText";
 import { useEffect, useState } from "react";
+import SloganBanner from "./SloganBanner";
+import SloganHero from "./SloganHero";
 
 const words = ["du style", "de la vie", "du sens", "de la force"];
 
@@ -47,7 +49,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="accueil" className="relative min-h-screen flex items-center justify-center overflow-hidden grain">
+    <section id="accueil" className="relative min-h-screen flex items-center justify-center overflow-hidden grain pt-16">
       {/* Animated background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[150px] animate-blob-float" />
@@ -148,7 +150,7 @@ const Hero = () => {
 
         {/* Trusted by */}
         <div className="mt-16 animate-fade-in-up stagger-5 opacity-0" style={{ animationFillMode: "forwards" }}>
-          <p className="text-xs text-muted-foreground mb-4 uppercase tracking-widest">Ils nous font confiance</p>
+          <p className="text-xs text-muted-foreground mb-4 uppercase tracking-widest">Nos partenaires technologiques</p>
           <div className="flex items-center justify-center gap-8 flex-wrap">
             {["Digital Technologies", "Bigger", "Data-Quality"].map((name) => (
               <span key={name} className="text-sm font-medium text-muted-foreground/50 hover:text-muted-foreground transition-colors">

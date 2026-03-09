@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import GradientText from "@/components/ui/GradientText";
 
+// Import des images des services
+import outsourcingImg from "@/assets/Outsourcing.jpg";
+import infogeranceImg from "@/assets/infogerance.jpg";
+import webAppsImg from "@/assets/Digital Technologies.jpg";
+import callCenterImg from "@/assets/Call Center.jpg";
+
 const services = [
   {
     icon: Users,
@@ -10,6 +16,7 @@ const services = [
     slug: "outsourcing",
     description: "Accédez aux compétences dont vous avez besoin, quand vous en avez besoin. Nos experts intègrent vos équipes.",
     tag: "Ressources",
+    image: outsourcingImg,
   },
   {
     icon: Shield,
@@ -17,6 +24,7 @@ const services = [
     slug: "infogerance",
     description: "Sécurisez et optimisez votre parc informatique. Maintenance proactive et support technique dédié.",
     tag: "Infrastructure",
+    image: infogeranceImg,
   },
   {
     icon: Code2,
@@ -24,6 +32,7 @@ const services = [
     slug: "web-apps",
     description: "Sites web et applications métier sur mesure. Design moderne, performances optimales, expérience utilisateur exceptionnelle.",
     tag: "Développement",
+    image: webAppsImg,
   },
   {
     icon: Headphones,
@@ -31,6 +40,7 @@ const services = [
     slug: "call-center",
     description: "Solutions professionnelles de centre d'appel. Technologie VoIP, CRM intégré et formation des agents.",
     tag: "Communication",
+    image: callCenterImg,
   },
 ];
 
@@ -56,30 +66,42 @@ const Services = () => {
           {services.map((service, i) => (
             <div
               key={service.title}
-              className="group relative p-6 rounded-xl glass hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-xl glass hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
-              {/* Icon */}
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4 group-hover:from-primary/30 group-hover:to-accent/30 transition-all">
-                <service.icon size={24} className="text-primary" />
+              {/* Background Image */}
+              <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
-              {/* Tag */}
-              <span className="text-[10px] uppercase tracking-widest text-accent font-medium">{service.tag}</span>
+              {/* Content */}
+              <div className="relative p-6">
+                {/* Icon */}
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4 group-hover:from-primary/30 group-hover:to-accent/30 transition-all">
+                  <service.icon size={24} className="text-primary" />
+                </div>
 
-              {/* Title */}
-              <h3 className="text-xl font-semibold text-foreground mt-2 mb-3">{service.title}</h3>
+                {/* Tag */}
+                <span className="text-[10px] uppercase tracking-widest text-accent font-medium">{service.tag}</span>
 
-              {/* Description */}
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{service.description}</p>
+                {/* Title */}
+                <h3 className="text-xl font-semibold text-foreground mt-2 mb-3">{service.title}</h3>
 
-              {/* Link */}
-              <Link
-                to={`/services/${service.slug}`}
-                className="inline-flex items-center gap-1 text-sm text-primary hover:gap-2 transition-all"
-              >
-                En savoir plus <ArrowRight size={14} />
-              </Link>
+                {/* Description */}
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{service.description}</p>
+
+                {/* Link */}
+                <Link
+                  to={`/services/${service.slug}`}
+                  className="inline-flex items-center gap-1 text-sm text-primary hover:gap-2 transition-all"
+                >
+                  En savoir plus <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
           ))}
         </div>

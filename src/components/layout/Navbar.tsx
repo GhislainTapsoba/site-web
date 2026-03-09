@@ -56,16 +56,15 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "glass bg-background/80 shadow-lg shadow-primary/5"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+        ? "glass bg-background/80 shadow-lg shadow-primary/5"
+        : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
-          <img src={logo} alt="Deep-Technologies" className="h-10 w-auto rounded" />
+          <img src={logo} alt="Deep-Technologies" className="h-12 w-auto rounded scale-125" />
           <span className="text-lg font-bold text-foreground hidden sm:inline">
             Deep<span className="text-primary">-Technologies</span>
           </span>

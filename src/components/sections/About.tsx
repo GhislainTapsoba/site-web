@@ -25,7 +25,7 @@ const About = () => {
               <GradientText>vous comprend</GradientText>
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6 text-lg">
-              Depuis plus de 10 ans, Deep-Technologies accompagne les entreprises du Burkina Faso et d'Afrique de l'Ouest dans leur transformation digitale.
+              Depuis 5 ans, Deep-Technologies accompagne les entreprises du Burkina Faso et d'Afrique de l'Ouest dans leur transformation digitale.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-10">
               Notre approche repose sur l'écoute, l'accompagnement personnalisé et la livraison de solutions sur-mesure qui créent une vraie valeur ajoutée. Notre équipe d'experts passionnés met tout en œuvre pour dépasser vos attentes.
@@ -52,7 +52,7 @@ const About = () => {
               <div className="relative rounded-2xl overflow-hidden glass p-8">
                 {/* Logo */}
                 <div className="flex items-center justify-center mb-8">
-                  <img src={logo} alt="Deep-Technologies" className="h-20 w-auto rounded-lg" />
+                  <img src={logo} alt="Deep-Technologies" className="h-32 w-auto rounded-lg scale-110" />
                 </div>
 
                 {/* Tech icons grid */}
