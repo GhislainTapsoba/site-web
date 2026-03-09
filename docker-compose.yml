@@ -1,12 +1,11 @@
 services:
-  # Frontend Web
   web-frontend:
     build: .
     container_name: deep-technologies-web
     environment:
       NODE_ENV: production
     ports:
-      - "127.0.0.1:3010:80"
+      - "3010:80" # <- ici changement
     networks:
       app-network:
         ipv4_address: 172.28.0.5
