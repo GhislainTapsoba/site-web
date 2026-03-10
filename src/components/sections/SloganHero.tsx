@@ -4,6 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const SloganHero = () => {
+  const scrollToContact = () => {
+    const contactElement = document.querySelector("#contact");
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative py-20 lg:py-32 overflow-hidden bg-background">
       {/* Image simple et visible */}
@@ -59,10 +66,10 @@ const SloganHero = () => {
                 size="lg"
                 className="border-primary/30 hover:border-primary"
               >
-                <Link to="#contact" className="flex items-center gap-2">
+                <button onClick={scrollToContact} className="flex items-center gap-2">
                   Démarrer un Projet
                   <ArrowRight className="w-5 h-5" />
-                </Link>
+                </button>
               </Button>
             </div>
           </div>
