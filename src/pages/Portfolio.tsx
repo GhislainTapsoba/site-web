@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import GradientText from "@/components/ui/GradientText";
+import teamProject from "@/assets/teamproject.jpg";
 
 type Category = "all" | "web" | "app" | "infogerance" | "callcenter";
 
@@ -18,6 +19,13 @@ const categories: { value: Category; label: string }[] = [
 ];
 
 const projects = [
+  {
+    title: "Application de Gestion de Projets : Team Project",
+    category: "web" as Category,
+    description: "Plateforme web complète permettant le suivi des taches dans une structure .",
+    tech: ["React", "Node.js", "PostgreSQL"],
+    image: teamProject,
+  },
   {
     title: "Portail E-commerce BNDA",
     category: "web" as Category,
@@ -115,8 +123,8 @@ const Portfolio = () => {
                 key={cat.value}
                 onClick={() => setActive(cat.value)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${active === cat.value
-                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg shadow-primary/25"
-                    : "glass text-muted-foreground hover:text-foreground hover:border-primary/40"
+                  ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg shadow-primary/25"
+                  : "glass text-muted-foreground hover:text-foreground hover:border-primary/40"
                   }`}
               >
                 {cat.label}
