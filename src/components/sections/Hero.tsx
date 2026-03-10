@@ -25,7 +25,7 @@ const Hero = () => {
     let timeout: ReturnType<typeof setTimeout>;
 
     if (!isDeleting && displayed === currentWord) {
-      timeout = setTimeout(() => setIsDeleting(true), 2000);
+      timeout = setTimeout(() => setIsDeleting(true), 3500);
     } else if (isDeleting && displayed === "") {
       setIsDeleting(false);
       setWordIndex((prev) => (prev + 1) % words.length);
@@ -38,7 +38,7 @@ const Hero = () => {
               : currentWord.substring(0, displayed.length + 1)
           );
         },
-        isDeleting ? 60 : 120
+        isDeleting ? 100 : 200
       );
     }
     return () => clearTimeout(timeout);
