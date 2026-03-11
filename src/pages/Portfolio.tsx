@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ExternalLink, ArrowLeft } from "lucide-react";
+import { ExternalLink, ArrowLeft, Sparkles, ArrowRight, Crown, Gem, Star, Rocket, Flame, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/layout/Navbar";
@@ -90,79 +90,154 @@ const Portfolio = () => {
   const filtered = active === "all" ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900/20 via-orange-900/20 to-amber-900/20">
       <Navbar />
 
-      {/* Hero */}
+      {/* Magical Hero */}
       <section className="relative pt-32 pb-16 overflow-hidden grain">
+        {/* Magical background */}
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-blob-float" />
-          <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-accent/15 rounded-full blur-[100px] animate-blob-float" style={{ animationDelay: "3s" }} />
+          {/* Primary blue/orange orbs */}
+          <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-gradient-to-r from-blue-500/25 via-orange-500/25 to-amber-500/25 rounded-full blur-3xl animate-blob-float" />
+          <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-r from-cyan-500/25 via-orange-500/25 to-blue-500/25 rounded-full blur-3xl animate-blob-float" style={{ animationDelay: "3s" }} />
+          <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-cyan-500/20 rounded-full blur-2xl animate-blob-float" style={{ animationDelay: "5s" }} />
+
+          {/* NEW: Emerald accent orbs */}
+          <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-gradient-to-r from-emerald-500/15 via-teal-500/15 to-green-500/15 rounded-full blur-2xl animate-blob-float" style={{ animationDelay: "7s" }} />
+          <div className="absolute bottom-1/2 right-1/3 w-56 h-56 bg-gradient-to-r from-green-500/12 via-emerald-500/12 to-teal-500/12 rounded-full blur-xl animate-blob-float" style={{ animationDelay: "9s" }} />
+
+          {/* Magical particles with new emerald ones */}
+          <div className="absolute inset-0">
+            {[...Array(12)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute w-2 h-2 bg-gradient-to-r from-blue-400 to-orange-400 rounded-full animate-pulse"
+                style={{
+                  top: `${Math.random() * 100}%`,
+                  left: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 3}s`,
+                  animationDuration: `${2 + Math.random() * 2}s`
+                }}
+              />
+            ))}
+            {[...Array(6)].map((_, i) => (
+              <div
+                key={`emerald-${i}`}
+                className="absolute w-1.5 h-1.5 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full animate-pulse"
+                style={{
+                  top: `${Math.random() * 100}%`,
+                  left: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 3}s`,
+                  animationDuration: `${2 + Math.random() * 2}s`
+                }}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="container mx-auto px-4 lg:px-8">
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
-            <ArrowLeft size={16} /> Retour à l'accueil
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <Link to="/" className="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-100 transition-colors mb-8 group">
+            <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Retour à l'énergie
           </Link>
+
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-400/30 bg-blue-500/10 mb-6 relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-400/20 to-orange-400/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <Crown className="w-4 h-4 text-blue-400 relative z-10" />
+            <span className="text-sm text-blue-300 font-medium relative z-10">Portfolio Dynamique</span>
+          </div>
+
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            Notre <GradientText>Portfolio</GradientText>
+            Notre <span className="bg-gradient-to-r from-blue-400 via-orange-400 to-amber-400 bg-clip-text text-transparent">Portfolio Performant</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl">
-            Découvrez une sélection de projets réalisés pour nos clients à travers l'Afrique de l'Ouest.
+          <p className="text-lg text-blue-200 max-w-2xl">
+            Découvrez une sélection de <span className="text-blue-100 font-semibold">projets performants</span> réalisés pour nos clients à travers l'Afrique de l'Ouest.
           </p>
         </div>
       </section>
 
-      {/* Filters + Grid */}
-      <SectionWrapper className="py-16">
-        <div className="container mx-auto px-4 lg:px-8">
-          {/* Filters */}
-          <div className="flex flex-wrap gap-2 mb-12">
+      {/* Magical Filters + Grid */}
+      <SectionWrapper className="py-16 relative overflow-hidden">
+        {/* Magical background */}
+        <div className="absolute inset-0 -z-10">
+          {/* Primary blue/orange orbs */}
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/15 via-orange-500/15 to-amber-500/15 rounded-full blur-3xl animate-blob-float" />
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-cyan-500/15 via-orange-500/15 to-blue-500/15 rounded-full blur-3xl animate-blob-float" style={{ animationDelay: "2s" }} />
+
+          {/* Emerald accent orbs */}
+          <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-gradient-to-r from-emerald-500/12 via-teal-500/12 to-green-500/12 rounded-full blur-2xl animate-blob-float" style={{ animationDelay: "4s" }} />
+        </div>
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          {/* Magical filters */}
+          <div className="flex flex-wrap gap-3 mb-12">
             {categories.map((cat) => (
               <button
                 key={cat.value}
                 onClick={() => setActive(cat.value)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${active === cat.value
-                  ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg shadow-primary/25"
-                  : "glass text-muted-foreground hover:text-foreground hover:border-primary/40"
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all relative overflow-hidden group ${active === cat.value
+                  ? "bg-gradient-to-r from-blue-500 to-orange-500 text-white shadow-lg shadow-blue-500/30 hover:scale-[1.02]"
+                  : "glass border border-blue-400/30 text-blue-300 hover:border-blue-400/60 hover:text-blue-200"
                   }`}
               >
-                {cat.label}
+                {active === cat.value && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                )}
+                <div className="relative z-10 flex items-center gap-2">
+                  {active === cat.value && <Sparkles className="w-3 h-3" />}
+                  {cat.label}
+                </div>
               </button>
             ))}
           </div>
 
-          {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Magical grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filtered.map((project, i) => (
               <div
                 key={project.title}
-                className="group glass rounded-xl overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1"
-                style={{ animationDelay: `${i * 0.1}s` }}
+                className="group glass rounded-2xl overflow-hidden border border-blue-400/20 hover:border-blue-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 relative"
+                style={{ animationDelay: `${i * 0.15}s` }}
               >
+                {/* Background magical effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-orange-500/5 to-amber-500/5 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-2xl"></div>
+
+                {/* Emerald accent layer */}
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/3 via-teal-500/2 to-transparent opacity-0 group-hover:opacity-30 transition-all duration-700 rounded-2xl"></div>
+
                 {/* Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-56 overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
-                  <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="p-2 rounded-full glass">
-                      <ExternalLink size={16} className="text-foreground" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/50 to-transparent" />
+
+                  {/* Magical overlay */}
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <div className="p-3 rounded-full glass border border-blue-400/30 hover:border-blue-400/60 transition-all duration-300 group">
+                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-400/20 to-orange-400/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+                      <ExternalLink size={18} className="text-blue-300 relative z-10 group-hover:text-blue-200 transition-colors" />
                     </div>
+                  </div>
+
+                  {/* Floating magical elements with emerald */}
+                  <div className="absolute top-4 left-4 w-6 h-6 bg-gradient-to-r from-orange-400 to-blue-400 rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-500 animate-pulse">
+                    <Star className="w-3 h-3 text-white m-auto" />
+                  </div>
+                  <div className="absolute bottom-4 right-4 w-5 h-5 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full opacity-40 group-hover:opacity-80 transition-opacity duration-500 animate-pulse" style={{ animationDelay: "0.5s" }}>
+                    <Zap className="w-2.5 h-2.5 text-white m-auto" />
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{project.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{project.description}</p>
+                <div className="p-6 relative z-10">
+                  <h3 className="text-xl font-bold text-blue-100 mb-3 group-hover:text-blue-50 transition-colors duration-300">{project.title}</h3>
+                  <p className="text-blue-200 leading-relaxed mb-4 group-hover:text-blue-100 transition-colors duration-300">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((t) => (
-                      <span key={t} className="text-[10px] uppercase tracking-wider px-2 py-1 rounded-md bg-primary/10 text-primary font-medium">
+                      <span key={t} className="text-[10px] uppercase tracking-wider px-3 py-1 rounded-md bg-gradient-to-r from-blue-500/20 to-orange-500/20 text-blue-300 font-medium border border-blue-400/30">
                         {t}
                       </span>
                     ))}
@@ -174,21 +249,43 @@ const Portfolio = () => {
         </div>
       </SectionWrapper>
 
-      {/* CTA */}
-      <SectionWrapper className="py-20">
-        <div className="container mx-auto px-4 lg:px-8 text-center">
-          <div className="glass rounded-2xl p-12 max-w-2xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Vous avez un <GradientText>projet</GradientText> ?
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              Discutons ensemble de vos besoins et transformons votre vision en réalité.
-            </p>
-            <Link to="/#contact">
-              <Button className="bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 px-8" size="lg">
-                Démarrer un projet
-              </Button>
-            </Link>
+      {/* Magical CTA */}
+      <SectionWrapper className="py-20 relative overflow-hidden">
+        {/* Magical background */}
+        <div className="absolute inset-0 -z-10">
+          {/* Primary blue/orange orbs */}
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/20 via-orange-500/20 to-amber-500/20 rounded-full blur-3xl animate-blob-float" />
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-cyan-500/20 via-orange-500/20 to-blue-500/20 rounded-full blur-3xl animate-blob-float" style={{ animationDelay: "2s" }} />
+
+          {/* Emerald accent orbs */}
+          <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-gradient-to-r from-emerald-500/15 via-teal-500/15 to-green-500/15 rounded-full blur-2xl animate-blob-float" style={{ animationDelay: "4s" }} />
+        </div>
+
+        <div className="container mx-auto px-4 lg:px-8 text-center relative z-10">
+          <div className="glass rounded-2xl p-12 max-w-2xl mx-auto border border-blue-400/30 relative">
+            {/* Background magical effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-orange-500/5 to-amber-500/5 rounded-2xl"></div>
+
+            {/* Emerald accent layer */}
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/3 via-teal-500/2 to-transparent rounded-2xl"></div>
+
+            <div className="relative z-10">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-400/30 bg-blue-500/10 mb-6">
+                <Rocket className="w-4 h-4 text-blue-400" />
+                <span className="text-sm text-blue-300 font-medium">Prêt pour la performance ?</span>
+              </div>
+              <h2 className="text-3xl font-bold mb-4 text-blue-100">
+                Vous avez un <span className="bg-gradient-to-r from-blue-400 via-orange-400 to-amber-400 bg-clip-text text-transparent">projet dynamique</span> ?
+              </h2>
+              <p className="text-blue-200 mb-8">
+                Discutons ensemble de vos besoins et transformons votre vision en <span className="text-blue-100 font-semibold">réalité performante</span>.
+              </p>
+              <Link to="/#contact">
+                <Button className="bg-gradient-to-r from-blue-500 to-orange-500 text-white hover:scale-[1.02] transition-all shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 px-8" size="lg">
+                  Démarrer un projet performant
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </SectionWrapper>
