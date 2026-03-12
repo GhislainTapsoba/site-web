@@ -10,6 +10,7 @@ const navLinks = [
   { label: "Services", href: "#services", path: "/" },
   { label: "Portfolio", href: "/portfolio", path: "/portfolio" },
   { label: "À propos", href: "#apropos", path: "/" },
+  { label: "Support", href: "/support", path: "/support" },
   { label: "Contact", href: "#contact", path: "/" },
 ];
 
@@ -33,8 +34,8 @@ const Navbar = () => {
 
   const handleNav = (link: typeof navLinks[0]) => {
     setOpen(false);
-    if (link.path === "/portfolio") {
-      navigate("/portfolio");
+    if (link.path === "/portfolio" || link.path === "/support") {
+      navigate(link.path);
       return;
     }
     if (location.pathname !== "/") {
