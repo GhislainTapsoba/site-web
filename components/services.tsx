@@ -10,28 +10,32 @@ const services = [
     title: "Outsourcing",
     description: "Accédez aux compétences dont vous avez besoin, quand vous en avez besoin. Nos experts intègrent vos équipes.",
     features: ["Experts dédiés", "Flexibilité", "Montée en compétences"],
-    color: "accent"
+    color: "accent",
+    href: "/services/outsourcing"
   },
   {
     icon: Shield,
     title: "Infogérance",
     description: "Sécurisez et optimisez votre parc informatique. Maintenance proactive et support technique dédié.",
     features: ["Gestion du parc", "Sauvegarde", "Maintenance préventive"],
-    color: "primary"
+    color: "primary",
+    href: "/services/infogerance"
   },
   {
     icon: Code2,
     title: "Web & Apps Design",
     description: "Sites web et applications métier sur mesure. Design moderne, performances optimales, expérience utilisateur exceptionnelle.",
     features: ["Applications web", "Apps mobiles", "APIs REST"],
-    color: "primary"
+    color: "primary",
+    href: "/services/web-apps"
   },
   {
     icon: Headphones,
     title: "Call Center Solution",
     description: "Solutions professionnelles de centre d'appel. Technologie VoIP, CRM intégré et formation des agents.",
     features: ["VoIP intégré", "CRM", "Reporting avancé"],
-    color: "accent"
+    color: "accent",
+    href: "/services/call-center"
   }
 ]
 
@@ -40,7 +44,7 @@ export function Services() {
     <section id="services" className="py-24 lg:py-32 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/30 to-background" />
-      
+
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -57,7 +61,7 @@ export function Services() {
             Nous transformons vos idées en expériences digitales performantes avec des services adaptés à vos besoins.
           </p>
         </div>
-        
+
         {/* Services grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
@@ -67,21 +71,21 @@ export function Services() {
             >
               {/* Gradient overlay on hover */}
               <div className={`absolute inset-0 bg-gradient-to-br from-${service.color}/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-              
+
               <div className="relative z-10">
                 {/* Icon */}
                 <div className={`w-14 h-14 rounded-xl bg-${service.color}/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <service.icon className={`h-7 w-7 text-${service.color}`} />
                 </div>
-                
+
                 <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
-                
+
                 <p className="text-muted-foreground leading-relaxed mb-6">
                   {service.description}
                 </p>
-                
+
                 {/* Features */}
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature) => (
@@ -91,12 +95,12 @@ export function Services() {
                     </li>
                   ))}
                 </ul>
-                
+
                 {/* Link */}
-                <span className={`inline-flex items-center gap-2 text-sm font-semibold text-${service.color} group-hover:gap-3 transition-all`}>
+                <Link href={service.href} className={`inline-flex items-center gap-2 text-sm font-semibold text-${service.color} group-hover:gap-3 transition-all`}>
                   En savoir plus
                   <ArrowRight className="h-4 w-4" />
-                </span>
+                </Link>
               </div>
             </article>
           ))}

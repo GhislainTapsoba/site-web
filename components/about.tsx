@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Target, Eye, ShieldCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const stats = [
@@ -19,10 +19,22 @@ export function About() {
             <p className="text-accent font-semibold mb-4 uppercase tracking-wider text-sm">
               À propos de nous
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight mb-8">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight mb-6">
               Au-delà des 
               <span className="text-accent"> Technologies</span> ...
             </h2>
+            
+            {/* Presentation Section */}
+            <div className="text-muted-foreground leading-relaxed mb-10 space-y-4">
+              <p>
+                <strong className="text-foreground">Vous accompagner avant tout.</strong>
+                <br/>
+                Avant notre première intervention, nous venons à votre rencontre pour écouter, échanger sur vos attentes et définir vos priorités. Il s’agit de mieux vous connaître et comprendre vos enjeux. Cette approche est essentielle pour vous conseiller et vous guider dans vos choix stratégiques.
+              </p>
+              <p>
+                Nous nous attachons à vous apporter une vision d’ensemble pour mettre en cohérence votre projet. Combinées à la rigueur de notre méthodologie, notre réactivité et notre implication font toute la différence.
+              </p>
+            </div>
             
             {/* Stats */}
             <div className="flex gap-8 mb-8">
@@ -88,6 +100,39 @@ export function About() {
                 <span className="text-xs font-semibold uppercase tracking-wider">Innovation</span>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Mission, Vision, Values */}
+        <div className="grid md:grid-cols-3 gap-8 mt-4">
+          <div className="bg-background rounded-2xl p-8 border border-border/50 hover:border-accent/30 hover:shadow-lg transition-all duration-300">
+            <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mb-6">
+              <Target className="w-7 h-7 text-accent" />
+            </div>
+            <h3 className="text-xl font-bold text-foreground mb-4">Notre Mission</h3>
+            <p className="text-muted-foreground leading-relaxed text-sm">
+              Accompagner la transformation digitale des entreprises burkinabè et africaines en fournissant des solutions IT sur mesure, fiables et innovantes, capables de sécuriser leurs données et d'accélérer leur croissance.
+            </p>
+          </div>
+          
+          <div className="bg-background rounded-2xl p-8 border border-border/50 hover:border-accent/30 hover:shadow-lg transition-all duration-300">
+            <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mb-6">
+              <Eye className="w-7 h-7 text-accent" />
+            </div>
+            <h3 className="text-xl font-bold text-foreground mb-4">Notre Vision</h3>
+            <p className="text-muted-foreground leading-relaxed text-sm">
+              S'imposer comme le partenaire technologique de référence en Afrique de l'Ouest, reconnu pour l'excellence de son ingénierie logicielle, la robustesse de son support technique et l'efficacité de ses solutions de centre de contact.
+            </p>
+          </div>
+
+          <div className="bg-background rounded-2xl p-8 border border-border/50 hover:border-accent/30 hover:shadow-lg transition-all duration-300">
+            <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mb-6">
+              <ShieldCheck className="w-7 h-7 text-accent" />
+            </div>
+            <h3 className="text-xl font-bold text-foreground mb-4">Nos Valeurs</h3>
+            <p className="text-muted-foreground leading-relaxed text-sm">
+              <strong className="text-foreground">Intégrité</strong> dans toutes nos démarches professionnelles, une <strong className="text-foreground">Expertise technique</strong> continuellement mise à jour, et une <strong className="text-foreground">Implication absolue</strong> pour la réussite de nos partenaires.
+            </p>
           </div>
         </div>
       </div>

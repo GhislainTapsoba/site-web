@@ -11,8 +11,8 @@ const steps = [
   },
   {
     icon: CreditCard,
-    title: "2. Paiement du Support",
-    description: "Effectuez le paiement de la prestation via mobile money (Orange Money / Moov Africa) ou virement bancaire selon le forfait choisi.",
+    title: "2. Paiement Sécurisé",
+    description: "Après un diagnostic de votre besoin, effectuez le paiement du forfait convenu en toute sécurité via Mobile Money (Orange, Moov, Coris) ou par virement. Une facture vous sera immédiatement délivrée.",
   },
   {
     icon: MonitorPlay,
@@ -71,9 +71,23 @@ export function Support() {
           
           <MonitorPlay className="w-12 h-12 text-accent mx-auto mb-6" />
           <h3 className="text-2xl font-bold text-foreground mb-4">Prêt à démarrer l'assistance ?</h3>
-          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-            Cliquez sur le bouton ci-dessous pour télécharger notre outil de prise en main à distance. Une fois installé, contactez notre équipe pour procéder au paiement et lancer l'intervention.
-          </p>
+          <div className="text-muted-foreground mb-8 max-w-xl mx-auto text-left space-y-3 p-6 bg-background/50 rounded-2xl border border-border/50">
+            <p className="font-semibold text-foreground border-b border-border/50 pb-2 mb-3">
+              Déroulement de la prise en charge :
+            </p>
+            <p className="flex items-start gap-2">
+              <span className="font-bold text-primary">1.</span> 
+              Contactez-nous pour exposer votre problème technique (par appel ou formulaire).
+            </p>
+            <p className="flex items-start gap-2">
+              <span className="font-bold text-primary">2.</span> 
+              Notre équipe évalue le problème et vous propose un forfait d'intervention clair et transparent.
+            </p>
+            <p className="flex items-start gap-2">
+              <span className="font-bold text-primary">3.</span> 
+              Dès validation de votre paiement, installez AnyDesk et notre technicien prend la main pour résoudre votre souci instantanément.
+            </p>
+          </div>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button 

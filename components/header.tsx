@@ -6,13 +6,19 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X, ChevronRight } from "lucide-react"
 
-const navItems = [
-  { name: "Accueil", href: "#", active: true },
-  { name: "A propos", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Projets", href: "#portfolio" },
-  { name: "Support", href: "#support" },
-  { name: "Contact", href: "#contact" },
+interface NavItem {
+  name: string
+  href: string
+  active?: boolean
+}
+
+const navItems: NavItem[] = [
+  { name: "Accueil", href: "/" },
+  { name: "A propos", href: "/#about" },
+  { name: "Services", href: "/#services" },
+  { name: "Projets", href: "/#portfolio" },
+  { name: "Support", href: "/#support" },
+  { name: "Contact", href: "/#contact" },
 ]
 
 export function Header() {

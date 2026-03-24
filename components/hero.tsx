@@ -45,8 +45,15 @@ export function Hero() {
               Chez Deep-Technologies, vous explorez les talents cachés, élargissez votre vision et augmentez votre valeur par la transparence et l'innovation continue.
             </p>
             
-            <div className="py-2">
-              <Image src="/images/slogan.jpg" alt="Slogan" width={400} height={120} style={{ width: "auto", height: "auto", maxHeight: "100px" }} className="rounded-xl shadow-md border border-border" />
+            <div className="py-4">
+              <Image 
+                src="/images/slogan.jpg" 
+                alt="Slogan Deep-Technologies" 
+                width={500} 
+                height={150} 
+                className="w-full max-w-[450px] h-auto rounded-xl shadow-lg border border-border/50 object-contain"
+                priority 
+              />
             </div>
             
             {/* CTA Buttons */}
