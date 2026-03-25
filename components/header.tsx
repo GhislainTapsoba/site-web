@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X, ChevronRight } from "lucide-react"
+import { ModeToggle } from "@/components/mode-toggle"
 
 interface NavItem {
   name: string
@@ -48,9 +49,9 @@ export function Header() {
           <div
             className={`
               relative flex items-center gap-1
-              bg-[#0a0a0a]/90 backdrop-blur-2xl
-              border border-white/10
-              shadow-2xl shadow-black/50
+              bg-white/90 dark:bg-[#0a0a0a]/90 backdrop-blur-2xl
+              border border-black/10 dark:border-white/10
+              shadow-2xl shadow-black/10 dark:shadow-black/50
               transition-all duration-500 ease-out
               ${isExpanded
                 ? "rounded-[28px] px-2 py-2"
@@ -77,7 +78,7 @@ export function Header() {
                 <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-[#F97316] rounded-full border-2 border-[#0a0a0a] animate-pulse" />
               </div>
               <span className={`
-                font-semibold text-white text-base tracking-tight whitespace-nowrap
+                font-semibold text-black dark:text-white text-base tracking-tight whitespace-nowrap
                 transition-all duration-300
                 ${isScrolled && !isExpanded ? "hidden" : "block"}
               `}>
@@ -87,7 +88,7 @@ export function Header() {
 
             {/* Separator */}
             <div className={`
-              w-px h-6 bg-white/10 mx-1
+              w-px h-6 bg-black/10 dark:bg-white/10 mx-1
               transition-all duration-300
               ${isExpanded ? "opacity-100" : "opacity-50"}
             `} />
@@ -103,8 +104,8 @@ export function Header() {
                     transition-all duration-300 ease-out
                     whitespace-nowrap
                     ${item.active
-                      ? "text-white bg-white/10"
-                      : "text-white/60 hover:text-white hover:bg-white/5"
+                      ? "text-black bg-black/10 dark:text-white dark:bg-white/10"
+                      : "text-black/60 hover:text-black hover:bg-black/5 dark:text-white/60 dark:hover:text-white dark:hover:bg-white/5"
                     }
                     ${isScrolled && !isExpanded && index > 2 ? "hidden" : "block"}
                   `}
@@ -119,28 +120,30 @@ export function Header() {
 
             {/* Separator */}
             <div className={`
-              w-px h-6 bg-white/10 mx-1
+              w-px h-6 bg-black/10 dark:bg-white/10 mx-1
               transition-all duration-300
               ${isExpanded ? "opacity-100" : "opacity-50"}
             `} />
 
-            {/* CTA Button */}
-            <Button
-              asChild
-              size="default"
-              className={`
-                bg-[#F97316] hover:bg-[#ea580c] text-white
-                rounded-full font-semibold text-base
-                shadow-lg shadow-orange-500/25
-                transition-all duration-300
-                ${isExpanded ? "px-5" : "px-4"}
-              `}
-            >
-              <Link href="#contact" className="flex items-center gap-1">
-                Devis
-                <ChevronRight className="w-4 h-4" />
-              </Link>
-            </Button>
+            <div className="flex items-center gap-2 pl-1 pr-1">
+              <ModeToggle />
+              <Button
+                asChild
+                size="default"
+                className={`
+                  bg-[#F97316] hover:bg-[#ea580c] text-white
+                  rounded-full font-semibold text-base
+                  shadow-lg shadow-orange-500/25
+                  transition-all duration-300
+                  ${isExpanded ? "px-5" : "px-4"}
+                `}
+              >
+                <Link href="#contact" className="flex items-center gap-1">
+                  Devis
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+              </Button>
+            </div>
           </div>
 
           {/* Glow effect */}
@@ -152,10 +155,10 @@ export function Header() {
       <header className="fixed top-4 left-4 right-4 z-50 lg:hidden">
         <div className={`
           flex items-center justify-between
-          bg-[#0a0a0a]/95 backdrop-blur-2xl
-          border border-white/10
+          bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-2xl
+          border border-black/10 dark:border-white/10
           rounded-2xl px-4 py-3
-          shadow-2xl shadow-black/50
+          shadow-2xl shadow-black/10 dark:shadow-black/50
           transition-all duration-300
           ${isOpen ? "rounded-b-none border-b-0" : ""}
         `}>
@@ -165,7 +168,7 @@ export function Header() {
               <span className="text-white font-bold">D</span>
               <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-[#F97316] rounded-full border-2 border-[#0a0a0a]" />
             </div>
-            <span className="font-semibold text-white text-base">Deep-Technologies</span>
+            <span className="font-semibold text-black dark:text-white text-base">Deep-Technologies</span>
           </Link>
 
           {/* Menu Button */}
@@ -173,17 +176,17 @@ export function Header() {
             className={`
               p-2.5 rounded-full transition-all duration-300
               ${isOpen
-                ? "bg-white/10 rotate-90"
-                : "bg-white/5 hover:bg-white/10"
+                ? "bg-black/10 dark:bg-white/10 rotate-90"
+                : "bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10"
               }
             `}
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Menu"
           >
             {isOpen ? (
-              <X className="w-5 h-5 text-white" />
+              <X className="w-5 h-5 text-black dark:text-white" />
             ) : (
-              <Menu className="w-5 h-5 text-white" />
+              <Menu className="w-5 h-5 text-black dark:text-white" />
             )}
           </button>
         </div>
@@ -192,8 +195,8 @@ export function Header() {
         <div
           className={`
             overflow-hidden transition-all duration-400 ease-out
-            bg-[#0a0a0a]/95 backdrop-blur-2xl
-            border border-white/10 border-t-0
+            bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-2xl
+            border border-black/10 dark:border-white/10 border-t-0
             rounded-b-2xl
             ${isOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"}
           `}
@@ -210,8 +213,8 @@ export function Header() {
                   text-base font-medium
                   transition-all duration-200
                   ${item.active
-                    ? "bg-white/10 text-white"
-                    : "text-white/70 hover:bg-white/5 hover:text-white"
+                    ? "bg-black/10 text-black dark:bg-white/10 dark:text-white"
+                    : "text-black/70 hover:bg-black/5 hover:text-black dark:text-white/70 dark:hover:bg-white/5 dark:hover:text-white"
                   }
                 `}
               >
@@ -222,16 +225,22 @@ export function Header() {
               </Link>
             ))}
 
-            {/* Mobile CTA */}
-            <Button
-              asChild
-              className="mt-2 bg-[#F97316] hover:bg-[#ea580c] text-white rounded-xl font-semibold text-base h-12"
-            >
-              <Link href="#contact" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2">
-                Demander un devis
-                <ChevronRight className="w-4 h-4" />
-              </Link>
-            </Button>
+            <div className="mt-2 flex gap-2">
+              <div className="flex-1">
+                <Button
+                  asChild
+                  className="w-full bg-[#F97316] hover:bg-[#ea580c] text-white rounded-xl font-semibold text-base h-12"
+                >
+                  <Link href="#contact" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2">
+                    Demander un devis
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </Button>
+              </div>
+              <div className="flex h-12 items-center justify-center rounded-xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-2">
+                <ModeToggle />
+              </div>
+            </div>
           </nav>
         </div>
       </header>
