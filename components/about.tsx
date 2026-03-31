@@ -15,9 +15,9 @@ function AnimatedStat({ target, suffix }: { target: number; suffix: string }) {
 
   useEffect(() => {
     let start = 0
-    const duration = 4000
-    const steps = 80
-    const increment = target / steps
+    const duration = 7000
+    const steps = 70
+    const increment = 1
     const interval = duration / steps
 
     const timer = setInterval(() => {
@@ -27,7 +27,7 @@ function AnimatedStat({ target, suffix }: { target: number; suffix: string }) {
         clearInterval(timer)
         setTimeout(() => setCount(0), 2500)
       } else {
-        setCount(Math.floor(start))
+        setCount(start)
       }
     }, interval)
 
@@ -35,7 +35,7 @@ function AnimatedStat({ target, suffix }: { target: number; suffix: string }) {
   }, [count === 0, target])
 
   return (
-    <span className="text-4xl lg:text-5xl font-bold text-foreground">
+    <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
       {count}{suffix}
     </span>
   )
@@ -122,11 +122,11 @@ export function About() {
               <p className="text-accent font-semibold mb-4 uppercase tracking-wider text-sm">
                 À propos de nous
               </p>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight mb-6">
+              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight mb-6">
                 Au-delà des
                 <span className="text-accent"> Technologies</span> ...
               </h2>
-              <div className="text-muted-foreground leading-relaxed mb-10 space-y-4">
+              <div className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-8 space-y-4">
                 <p>
                   <strong className="text-foreground">Deep Technologies</strong> est une société à responsabilité limitée ayant son siège à Ouagadougou au Burkina Faso. Créée depuis 2021, elle est spécialisée dans les secteurs d'activités telles que le Support utilisateurs, les Solutions de centre d'appel, les Télécommunications, l'Externalisation et Prestations de services, ainsi que le Développement et la Conception de sites Web et de solutions Mobiles.
                 </p>
@@ -135,20 +135,20 @@ export function About() {
                 </p>
               </div>
 
-              <div className="flex gap-8 mb-8">
+              <div className="flex flex-wrap gap-6 mb-8">
                 {stats.map((stat) => (
                   <div key={stat.label}>
                     <AnimatedStat target={stat.target} suffix={stat.suffix} />
-                    <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground mt-1">{stat.label}</p>
                   </div>
                 ))}
                 <div>
-                  <span className="text-4xl lg:text-5xl font-bold text-foreground">10+</span>
-                  <p className="text-sm text-muted-foreground mt-1">Années d'expérience</p>
+                  <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">10+</span>
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-1">Années d'expérience</p>
                 </div>
                 <div>
-                  <span className="text-4xl lg:text-5xl font-bold text-foreground">2021</span>
-                  <p className="text-sm text-muted-foreground mt-1">Année de création</p>
+                  <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">2021</span>
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-1">Année de création</p>
                 </div>
               </div>
 

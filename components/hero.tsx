@@ -16,9 +16,9 @@ function AnimatedStat({ target, suffix }: { target: number; suffix: string }) {
 
   useEffect(() => {
     let start = 0
-    const duration = 4000
+    const duration = 7000
     const steps = 80
-    const increment = target / steps
+    const increment = 1
     const interval = duration / steps
 
     const timer = setInterval(() => {

@@ -1,28 +1,34 @@
-# Étape 1: Build
 FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Copier les fichiers de package
 COPY package*.json ./
-
-# Installer les dépendances
 RUN npm ci
 
-# Copier le code source
 COPY . .
-
-# Construire l'application
 RUN npm run build
 
-# Étape 2: Production avec Nginx
-FROM nginx:alpine
+# ── Production ──
+FROM node:20-alpine AS runner
 
-# Copier le build de l'étape précédente
-COPY --from=builder /app/out /usr/share/nginx/html
+WORKDIR /app
 
-# Exposer le port 80
-EXPOSE 80
+ENV NODE_ENV=production
 
-# Démarrer nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Utilisateur non-root pour la sécurité
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# Copier uniquement ce qui est nécessaire
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
+EXPOSE 3000
+
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+CMD ["node", "server.js"]

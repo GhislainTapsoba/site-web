@@ -192,7 +192,7 @@ export function Header() {
         {/* Mobile Navigation Dropdown */}
         <div
           className={`
-            overflow-hidden transition-all duration-500 ease-out
+            overflow-hidden transition-all duration-200 ease-out
             bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-2xl
             border border-black/10 dark:border-white/10 border-t-0
             rounded-b-2xl

@@ -6,9 +6,9 @@ Dockerfile
 .gitignore
 README.md
 .env
+.env.local
 .nyc_output
 coverage
-.nyc_output
-.coverage
 .cache
 dist
+.next
