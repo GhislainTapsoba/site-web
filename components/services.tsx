@@ -1,6 +1,6 @@
 "use client"
 
-import { Code2, Server, Headphones, Users, Globe, Shield, ArrowRight, Network, Cloud, Database } from "lucide-react"
+import { Code2, Server, Headphones, Users, Globe, Shield, ArrowRight, Network, Cloud, Database, GraduationCap, Package } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
@@ -26,7 +26,7 @@ const services = [
     title: "Web & Apps Design",
     description: "Sites web et applications métier sur mesure. Design moderne, performances optimales, expérience utilisateur exceptionnelle.",
     features: ["Applications web", "Apps mobiles", "APIs REST"],
-    color: "primary",
+    color: "accent",
     href: "/services/web-apps"
   },
   {
@@ -34,8 +34,24 @@ const services = [
     title: "Call Center Solution",
     description: "Solutions professionnelles de centre d'appel. Technologie VoIP, CRM intégré et formation des agents.",
     features: ["VoIP intégré", "CRM", "Reporting avancé"],
-    color: "accent",
+    color: "primary",
     href: "/services/call-center"
+  },
+  {
+    icon: GraduationCap,
+    title: "Formations & Matériel",
+    description: "Formations professionnelles continues et vente de matériel informatique adapté à vos besoins et contraintes.",
+    features: ["Formations IT", "Vente matériel", "Accompagnement"],
+    color: "accent",
+    href: "/services/formations"
+  },
+  {
+    icon: Package,
+    title: "Fournitures de Bureau",
+    description: "Fournitures et équipements de bureau de qualité irréprochable au meilleur prix pour travailler sereinement.",
+    features: ["Qualité garantie", "Meilleurs prix", "Livraison & installation"],
+    color: "primary",
+    href: "/services/fournitures"
   }
 ]
 
