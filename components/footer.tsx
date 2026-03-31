@@ -8,9 +8,11 @@ const navigation = {
     { name: "Infogérance", href: "/services/infogerance" },
     { name: "Web & Apps", href: "/services/web-apps" },
     { name: "Call Center", href: "/services/call-center" },
+    { name: "Formations & Matériel", href: "/services/formations" },
+    { name: "Fournitures de bureau", href: "/services/fournitures" },
   ],
   company: [
-    { name: "À propos", href: "/#about" },
+    { name: "À propos", href: "/a-propos" },
     { name: "Services", href: "/#services" },
     { name: "Projets", href: "/#portfolio" },
     { name: "Contact", href: "/#contact" },

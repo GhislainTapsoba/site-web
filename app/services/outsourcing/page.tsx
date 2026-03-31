@@ -4,34 +4,43 @@ import { Footer } from '@/components/footer'
 import { Users, Target, Zap, CheckCircle2 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Outsourcing - Deep-Technologies',
-  description: 'Déléguez vos ressources en toute confiance grâce à nos solutions d\'outsourcing qualifiées.',
+  title: 'Outsourcing - Deep Technologies',
+  description: "Déléguez vos ressources en toute confiance grâce à nos solutions d'outsourcing qualifiées.",
 }
 
 const features = [
   {
     name: 'Recrutement sur mesure',
-    description: 'Nous sélectionnons les meilleurs talents adaptés spécifiquement à vos besoins technologiques et à votre culture d\'entreprise.',
+    description: "Nous sélectionnons les meilleurs talents adaptés spécifiquement à vos besoins technologiques et à votre culture d'entreprise.",
     icon: Users,
   },
   {
     name: 'Flexibilité totale',
-    description: 'Ajustez la taille de votre équipe externe selon l\'évolution de vos projets sans les contraintes d\'un recrutement classique.',
+    description: "Ajustez la taille de votre équipe externe selon l'évolution de vos projets sans les contraintes d'un recrutement classique.",
     icon: Zap,
   },
   {
     name: 'Suivi et performance',
-    description: 'Des métriques claires et un accompagnement continu pour s\'assurer que les objectifs fixés sont toujours dépassés.',
+    description: "Des métriques claires et un accompagnement continu pour s'assurer que les objectifs fixés sont toujours dépassés.",
     icon: Target,
   },
+]
+
+const domaines = [
+  "Informatique et/ou télécommunications",
+  "Distribution, logistique et/ou transport",
+  "Services généraux ou production",
+  "Ressources humaines",
+  "Administration ou finances",
+  "Marketing ou communication",
 ]
 
 export default function OutsourcingPage() {
   return (
     <main className="bg-background min-h-screen">
       <Header />
-      
-      {/* Hero Section with Image */}
+
+      {/* Hero Section */}
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-32">
         <div className="absolute inset-x-0 top-0 h-[50rem] bg-gradient-to-b from-accent/20 via-background to-background" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
@@ -41,12 +50,23 @@ export default function OutsourcingPage() {
             </h1>
             <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
               <p className="text-lg leading-8 text-muted-foreground">
-                Parce qu’une entreprise n’a pas nécessairement besoin ou ne peut disposer de toutes les compétences 12 mois par an, elle doit avoir la possibilité de recourir à une compétence externe dans le cadre d’un projet spécifique et ponctuel.
+                Parce qu'une entreprise n'a pas nécessairement besoin ou ne peut disposer de toutes les compétences 12 mois par an, elle doit avoir la possibilité de recourir à une compétence externe dans le cadre d'un projet spécifique et ponctuel. Deep Technologies propose des solutions d'externalisation au travers de l'intérim de spécialité et l'intérim de capacité.
               </p>
+              <div className="mt-6">
+                <p className="text-sm font-semibold text-foreground mb-3">Nos champs d'externalisation :</p>
+                <ul className="space-y-2">
+                  {domaines.map((d) => (
+                    <li key={d} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <div className="mt-10 flex items-center gap-x-6">
                 <a
                   href="/#contact"
-                  className="rounded-md bg-accent px-3.5 py-2.5 text-sm font-semibold text-accent-foreground shadow-sm hover:bg-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                  className="rounded-md bg-accent px-3.5 py-2.5 text-sm font-semibold text-accent-foreground shadow-sm hover:bg-accent/90 transition-colors"
                 >
                   Nous contacter
                 </a>

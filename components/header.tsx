@@ -70,19 +70,16 @@ export function Header() {
                 ${isExpanded ? "pr-4" : ""}
               `}
             >
-              <div className="relative w-8 h-8 rounded-full bg-gradient-to-br from-[#2563EB] to-[#1d4ed8] flex items-center justify-center shadow-lg shadow-blue-500/25">
-                <span className="text-white font-bold text-sm">
-                  <Image src="/images/logo.jpg" alt="Logo" width={20} height={20} style={{ width: "auto", height: "auto" }} />
-                </span>
-                {/* Pulsing dot indicator */}
-                <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-[#F97316] rounded-full border-2 border-[#0a0a0a] animate-pulse" />
+
+              <div className="relative w-8 h-8 flex items-center justify-center">
+                <Image src="/media/image7.png" alt="Logo" width={20} height={20} style={{ width: "auto", height: "auto" }} />
               </div>
               <span className={`
-                font-semibold text-black dark:text-white text-base tracking-tight whitespace-nowrap
+                font-semibold text-base tracking-tight whitespace-nowrap
                 transition-all duration-300
                 ${isScrolled && !isExpanded ? "hidden" : "block"}
               `}>
-                Deep-Technologies
+                <span className="text-[#F97316]">D</span><span className="text-black dark:text-white">eep </span><span className="text-[#0a3aa1]">T</span><span className="text-black dark:text-white">echnologies</span>
               </span>
             </Link>
 
@@ -164,11 +161,12 @@ export function Header() {
         `}>
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="relative w-9 h-9 rounded-full bg-gradient-to-br from-[#2563EB] to-[#1d4ed8] flex items-center justify-center">
-              <span className="text-white font-bold">D</span>
-              <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-[#F97316] rounded-full border-2 border-[#0a0a0a]" />
+            <div className="relative w-9 h-9 flex items-center justify-center">
+              <Image src="/media/image7.png" alt="Logo" width={36} height={36} style={{ width: "auto", height: "auto" }} />
             </div>
-            <span className="font-semibold text-black dark:text-white text-base">Deep-Technologies</span>
+            <span className="font-semibold text-base">
+              <span className="text-[#F97316]">D</span><span className="text-black dark:text-white">eep </span><span className="text-[#2563EB]">T</span><span className="text-black dark:text-white">echnologies</span>
+            </span>
           </Link>
 
           {/* Menu Button */}
@@ -194,11 +192,11 @@ export function Header() {
         {/* Mobile Navigation Dropdown */}
         <div
           className={`
-            overflow-hidden transition-all duration-400 ease-out
+            overflow-hidden transition-all duration-500 ease-out
             bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-2xl
             border border-black/10 dark:border-white/10 border-t-0
             rounded-b-2xl
-            ${isOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"}
+            ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}
           `}
         >
           <nav className="flex flex-col p-3 gap-1">

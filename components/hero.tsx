@@ -4,6 +4,43 @@ import { ArrowRight, Play, CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
+import { useEffect, useState } from "react"
+
+const stats = [
+  { target: 98, suffix: "%", label: "Clients satisfaits" },
+  { target: 150, suffix: "+", label: "Projets réalisés" },
+]
+
+function AnimatedStat({ target, suffix }: { target: number; suffix: string }) {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    let start = 0
+    const duration = 4000
+    const steps = 80
+    const increment = target / steps
+    const interval = duration / steps
+
+    const timer = setInterval(() => {
+      start += increment
+      if (start >= target) {
+        setCount(target)
+        clearInterval(timer)
+        setTimeout(() => setCount(0), 2500)
+      } else {
+        setCount(Math.floor(start))
+      }
+    }, interval)
+
+    return () => clearInterval(timer)
+  }, [count === 0, target])
+
+  return (
+    <span className="text-4xl font-bold text-foreground">
+      {count}{suffix}
+    </span>
+  )
+}
 
 export function Hero() {
   return (
@@ -47,7 +84,7 @@ export function Hero() {
             
             <div className="py-4">
               <Image 
-                src="/images/slogan.jpg" 
+                src="/media/image9.png" 
                 alt="Slogan Deep-Technologies" 
                 width={500} 
                 height={150} 
@@ -98,14 +135,12 @@ export function Hero() {
 
             {/* Stats row */}
             <div className="flex gap-10 pt-8 border-t border-border">
-              <div>
-                <span className="text-4xl font-bold text-foreground">98%</span>
-                <p className="text-sm text-muted-foreground mt-1">Clients satisfaits</p>
-              </div>
-              <div>
-                <span className="text-4xl font-bold text-foreground">150+</span>
-                <p className="text-sm text-muted-foreground mt-1">Projets réalisés</p>
-              </div>
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <AnimatedStat target={stat.target} suffix={stat.suffix} />
+                  <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
+                </div>
+              ))}
               <div>
                 <span className="text-4xl font-bold text-foreground">24/7</span>
                 <p className="text-sm text-muted-foreground mt-1">Support technique</p>
@@ -114,7 +149,7 @@ export function Hero() {
           </div>
           
           {/* Right content - Dashboard mockup */}
-          <div className="relative lg:pl-8">
+          <div className="relative lg:pl-8 hidden lg:block">
             {/* Main dashboard image */}
             <div className="relative">
               {/* Browser frame */}
