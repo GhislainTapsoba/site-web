@@ -4,7 +4,7 @@ import { ArrowRight, Play, CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 
 const stats = [
   { target: 98, suffix: "%", label: "Clients satisfaits" },
@@ -13,27 +13,44 @@ const stats = [
 
 function AnimatedStat({ target, suffix }: { target: number; suffix: string }) {
   const [count, setCount] = useState(0)
+  const running = useRef(false)
 
   useEffect(() => {
-    let start = 0
-    const duration = 7000
-    const steps = 80
-    const increment = 1
-    const interval = duration / steps
+    function start() {
+      if (running.current) return
+      running.current = true
+      let current = 0
+      const interval = 7000 / target
+      const timer = setInterval(() => {
+        current += 1
+        setCount(current)
+        if (current >= target) {
+          clearInterval(timer)
+          running.current = false
+          setTimeout(() => setCount(0), 2500)
+        }
+      }, interval)
+    }
+    start()
+  }, [target])
 
-    const timer = setInterval(() => {
-      start += increment
-      if (start >= target) {
-        setCount(target)
-        clearInterval(timer)
-        setTimeout(() => setCount(0), 2500)
-      } else {
-        setCount(Math.floor(start))
-      }
-    }, interval)
-
-    return () => clearInterval(timer)
-  }, [count === 0, target])
+  useEffect(() => {
+    if (count === 0 && !running.current) {
+      running.current = true
+      let current = 0
+      const interval = 7000 / target
+      const timer = setInterval(() => {
+        current += 1
+        setCount(current)
+        if (current >= target) {
+          clearInterval(timer)
+          running.current = false
+          setTimeout(() => setCount(0), 2500)
+        }
+      }, interval)
+      return () => clearInterval(timer)
+    }
+  }, [count, target])
 
   return (
     <span className="text-4xl font-bold text-foreground">
