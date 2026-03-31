@@ -13,47 +13,35 @@ const stats = [
 
 function AnimatedStat({ target, suffix }: { target: number; suffix: string }) {
   const [count, setCount] = useState(0)
-  const running = useRef(false)
+  const ref = useRef<HTMLSpanElement>(null)
+  const animated = useRef(false)
 
   useEffect(() => {
-    function start() {
-      if (running.current) return
-      running.current = true
-      let current = 0
-      const interval = 7000 / target
-      const timer = setInterval(() => {
-        current += 1
-        setCount(current)
-        if (current >= target) {
-          clearInterval(timer)
-          running.current = false
-          setTimeout(() => setCount(0), 2500)
+    const el = ref.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !animated.current) {
+          animated.current = true
+          let current = 0
+          const interval = 7000 / target
+          const timer = setInterval(() => {
+            current += 1
+            setCount(current)
+            if (current >= target) clearInterval(timer)
+          }, interval)
         }
-      }, interval)
-    }
-    start()
+      },
+      { threshold: 0.5 }
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
   }, [target])
 
-  useEffect(() => {
-    if (count === 0 && !running.current) {
-      running.current = true
-      let current = 0
-      const interval = 7000 / target
-      const timer = setInterval(() => {
-        current += 1
-        setCount(current)
-        if (current >= target) {
-          clearInterval(timer)
-          running.current = false
-          setTimeout(() => setCount(0), 2500)
-        }
-      }, interval)
-      return () => clearInterval(timer)
-    }
-  }, [count, target])
-
   return (
-    <span className="text-4xl font-bold text-foreground">
+    <span ref={ref} className="text-4xl font-bold text-foreground">
       {count}{suffix}
     </span>
   )
