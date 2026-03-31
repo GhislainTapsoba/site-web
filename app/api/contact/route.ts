@@ -1,8 +1,6 @@
 import { Resend } from "resend"
 import { NextResponse } from "next/server"
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 // Rate limiting simple en mémoire (reset au redémarrage)
@@ -27,6 +25,7 @@ function isRateLimited(ip: string): boolean {
 
 export async function POST(req: Request) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY)
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() || "unknown"
 
     if (isRateLimited(ip)) {
