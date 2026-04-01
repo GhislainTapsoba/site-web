@@ -93,7 +93,7 @@ export function Hero() {
                 alt="Slogan Deep-Technologies" 
                 width={500} 
                 height={150} 
-                className="w-full max-w-[450px] h-auto rounded-xl shadow-lg border border-border/50 object-contain"
+                className="w-full max-w-[450px] h-auto rounded-xl shadow-lg border border-border/50 object-contain bg-white p-2"
                 priority 
               />
             </div>
