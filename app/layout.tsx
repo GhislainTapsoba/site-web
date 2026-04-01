@@ -16,12 +16,12 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'Deep-Technologies | Solutions IT & Innovation Digitale',
+  title: 'Deep-Technologies',
   description: 'Deep-Technologies - Votre partenaire technologique au Burkina Faso. Support utilisateurs, développement web & mobile, solutions de centre d\'appel et infogérance.',
   icons: {
-    icon: '/images/logo.jpg',
-    shortcut: '/images/logo.jpg',
-    apple: '/images/logo.jpg',
+    icon: '/favicon/favicon.png',
+    shortcut: '/favicon/favicon.png',
+    apple: '/favicon/favicon.png',
   },
 }
 
