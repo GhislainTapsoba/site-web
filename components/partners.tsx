@@ -31,7 +31,7 @@ function LogoMarquee({ items }: { items: { name: string; logo: string }[] }) {
         {doubled.map((item, index) => (
           <div
             key={item.name + index}
-            className="flex-shrink-0 w-32 h-16 md:w-40 md:h-20 transition-all duration-300 flex items-center justify-center bg-secondary/20 rounded-xl overflow-hidden"
+            className="flex-shrink-0 w-32 h-16 md:w-40 md:h-20 transition-all duration-300 flex items-center justify-center bg-white rounded-xl overflow-hidden"
           >
             {item.logo
               ? <img src={item.logo} alt={item.name} className="max-h-full max-w-full object-contain p-2" />
